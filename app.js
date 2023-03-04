@@ -27,6 +27,8 @@ app.post("/",function(req,res)
             const weatherData = JSON.parse(data)
            
             const temp = weatherData.main.temp;
+            const pressure = weatherData.main.pressure;
+            const humidity = weatherData.main.humidity;
             
             const description = weatherData.weather[0].description;
             
@@ -35,7 +37,9 @@ app.post("/",function(req,res)
             const imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
 
             res.write("<p> The weather is currently " + description + "<p>");
-            res.write("<h1> The temperature in " + query + " is " + temp + " degrees celcius " );
+            res.write("<h1> The temperature in " + query + " is " + temp + "℃" );
+            res.write("<h2> The pressure is" + pressure );
+            res.write("<h2> The humidity is" + humidity );
             res.write("<img src=" + imageURL + ">");
             res.send();
 
