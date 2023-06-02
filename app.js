@@ -42,7 +42,6 @@ app.post("/",function(req,res)
             res.write("<h2> The humidity is" + humidity );
             res.write("<img src=" + imageURL + ">");
             res.send();
-
         });
     });
     
